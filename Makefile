@@ -26,5 +26,8 @@ dependencies: _base-pip  ## Install dependencies
 outdated:  ## Show outdated packages
 	@poetry show --outdated
 
-test:
+test: clean
 	@poetry run pytest
+
+test-coverage: clean  ## Run tests with coverage output
+	@poetry run pytest tests/ --cov refactor/ --cov-report term-missing --cov-report html
